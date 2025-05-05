@@ -112,6 +112,19 @@ fn test_binary_search_tree(){
             println!("node with key of {} does not exist, failed to get successor", key)
         }
     }
+
+    // Insert a new node using tree_insert (book style)
+    let mut root = Some(rootlink.clone());
+    let z = BstNode::new_bst_nodelink(8);
+    BstNode::tree_insert(&mut root, z.clone());
+    println!("Inserted node with key: {:?}", z.borrow().key);
+
+    // Delete a node (book style)
+    if let Some(node) = rootlink.borrow().tree_search(&3) {
+        BstNode::tree_delete(&mut root, &node);
+        println!("Deleted node with key 3");
+    }
+    println!();
 }
 
 #[allow(dead_code)]
